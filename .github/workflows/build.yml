@@ -12,18 +12,18 @@ jobs:
           sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
           pip3 install --user --upgrade buildozer cython virtualenv
 
-      - name: Pre-aceitar Licencas Google
+      - name: Configurar e Aceitar Licencas
         run: |
           export PATH=$PATH:$HOME/.local/bin
           mkdir -p ~/.android && touch ~/.android/repositories.cfg
-          # Tenta baixar o SDK separadamente para evitar o Broken Pipe
-          yes | buildozer android p4a -- help || true
+          # Este comando aceita as licenças sem precisar do 'yes'
+          buildozer android p4a -- accept-sdk-license || true
 
       - name: Fabricar APK
         run: |
           export PATH=$PATH:$HOME/.local/bin
-          # Usa o modo verboso para manter a conexão viva
-          yes | buildozer -v android debug
+          # Rodando sem o 'yes' para testar a estabilidade
+          buildozer -v android debug
           
       - name: Enviar APK
         uses: actions/upload-artifact@v4
