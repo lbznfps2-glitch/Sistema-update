@@ -14,3 +14,10 @@ android.minapi = 21
 android.ndk = 23b
 android.accept_sdk_license = True
 android.archs = arm64-v8a, armeabi-v7a
+
+# --- LINHAS ESSENCIAIS QUE FALTAVAM ---
+log_level = 2
+warn_on_root = 0
+android.accept_sdk_license = True
+android.skip_update = False
+android.enable_androidx = True
