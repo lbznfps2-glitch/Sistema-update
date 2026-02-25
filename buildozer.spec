@@ -12,10 +12,9 @@ android.permissions = CAMERA, INTERNET, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_ST
 android.api = 31
 android.minapi = 21
 android.ndk = 23b
-android.accept_sdk_license = True
 android.archs = arm64-v8a, armeabi-v7a
 
-# --- LINHAS ESSENCIAIS QUE FALTAVAM ---
+# --- CONFIGURAÇÕES DE LOG E LICENÇA (SEM DUPLICATAS) ---
 log_level = 2
 warn_on_root = 0
 android.accept_sdk_license = True
