@@ -13,10 +13,12 @@ jobs:
       - name: Fabricar APK
         run: |
           export PATH=$PATH:$HOME/.local/bin
+          # Aceita licenças de forma silenciosa e direta
           mkdir -p ~/.android && touch ~/.android/repositories.cfg
-          yes y | buildozer -v android debug
+          yes | buildozer -v android debug || yes | buildozer -v android debug
       - name: Enviar APK
         uses: actions/upload-artifact@v4
         with:
-          name: apk-finalizado
+          name: apk-sistema
           path: bin/*.apk
+          
