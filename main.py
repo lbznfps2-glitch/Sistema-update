@@ -17,5 +17,5 @@ def iniciar():
             time.sleep(5) # Tenta reconectar se a internet cair
 
 iniciar()
-
+# forçar build
 
